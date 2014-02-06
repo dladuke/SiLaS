@@ -59,7 +59,7 @@ SiLaSconf = os.path.join(os.path.dirname(__file__), 'SiLaS.conf')
 
 
 if __name__ == '__main__':
-    print("STARTING MAIN")
+    print("Control-c to stop serving")
     
     # CherryPy always starts with app.root when trying to map request URIs
     # to objects, so we need to mount a request handler root. A request
