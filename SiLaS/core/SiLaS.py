@@ -1,65 +1,45 @@
 '''
 Created on Oct 18, 2013
 
-@author: owner
+@author: Dan LaDuke
 '''
 
-# if file does not exist create it.
-# GUI
-# WEBpage setup
-# Password
-# StandAlone
-# Multiplatform
-# No file redundancy
-# exit button
 
 
 
 import cherrypy
 import os.path
-#from core.server import server
+# from core.server import server
 from cherrypy.lib import static
 from os import listdir
-
-
 
 localDir = os.path.dirname(__file__)
 absDir = os.path.join(os.getcwd(), localDir)
 fileDir = os.path.join(os.getcwd(), "files")
 
-#TODO Add startup file selection and password dialogue
-#TODO Password protect Download option
-#TODO Password protect Download/Upload
-#Build script
-# Standalone app
-
-        
-
-
-    
 class server:
 
 
     def index(self):
-        return "".join(["<html><body>","<h2>Downloads</h2>",self._createHTML(),"<a href='listFiles'>List filesefs</a>","</body></html>"])
+        return "".join(["<html><body>", "<h2>Downloads</h2>", self._createHTML(), "<a href='listFiles'>List filesefs</a>", "</body></html>"])
     
 
             
 
     def download(self, fileName):
-        path = os.path.join(absDir, "files/"+fileName)
+        path = os.path.join(absDir, "files/" + fileName)
         return static.serve_file(path, "application/x-download",
                                  "attachment", os.path.basename(path))
         
     def listFiles(self):
         from os.path import isfile, join
-        onlyfiles = [ f for f in listdir(fileDir) if isfile(join(fileDir,f)) ]
+        onlyfiles = [ f for f in listdir(fileDir) if isfile(join(fileDir, f)) ]
         return (onlyfiles)
     
     def _createHTML(self):
         retVal = ""
         for x in self.listFiles():
-            retVal = retVal + "<a href='download?fileName=" +x+ "'>"+x+"</a><br>"
+            retVal = retVal + "<a href='download?fileName=" + x + "'>" + x + "</a><br>"
             return retVal
             
     def stopServer(self):

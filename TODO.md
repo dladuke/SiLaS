@@ -11,3 +11,15 @@ UI - Generate pretty HTML
 
 Build scripts - will need to be written and tested on their 
 host OS as per pyinstaller
+Script build and test on windows and mac
+
+Other notes
+# if file does not exist create it.
+# Webpage setup
+# Password
+# No file redundancy
+# exit options
+# TODO Add startup file selection and password dialogue
+# TODO Password protect Download option
+# TODO Password protect Download/Upload
+
