@@ -19,8 +19,6 @@ class server:
 
     def index(self):
         return "".join(["<html><body>","<h2>Downloads</h2>",self._createHTML(),"<a href='listFiles'>List filess</a>","</body></html>"])
-    
-
             
 
     def download(self, fileName):
@@ -39,7 +37,12 @@ class server:
             
             
         return retVal
+
+    def stopServer(self):
+        cherrypy.engine.exit()
+        return ""
         
+    stopServer.exposed = True
     listFiles.exposed = True
     download.exposed = True
     index.exposed = True
