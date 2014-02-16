@@ -16,33 +16,43 @@ fileDir = os.path.join(os.getcwd(), "files")
 
 class server:
     
+    fileList = ""
 
     def index(self):
-        return "".join(["<html><body>","<h2>Downloads</h2>",self._createHTML(),"<a href='listFiles'>List filess</a>","</body></html>"])
+        return "".join(["<html><body>","<h2>Downloads</h2>",self.fileList,"</body></html>"])
             
 
     def download(self, fileName):
-        path = os.path.join(absDir, "files/"+fileName)
-        return static.serve_file(path, "application/x-download",
-                                 "attachment", os.path.basename(path))
+        #path = os.path.join(absDir, "files/"+fileName) # Files folder
+        path = os.path.join("", fileName) # No files folder.
+        return static.serve_file(path, "application/x-download", "attachment", os.path.basename(path))
         
+    # Obsolete method
+    # TODO remove
     def listFiles(self):
         onlyfiles = [ f for f in listdir(fileDir) if isfile(join(fileDir,f)) ]
         return (onlyfiles)
-    
+
+    # Obsolete
+    # TODO update
     def _createHTML(self):
-        retVal = ""
+        retVal = self.fileList
         for x in self.listFiles():
             retVal = retVal + "<a href='download?fileName=" +x+ "'>"+x+"</a><br>"
-            
-            
         return retVal
 
+    # Terminate server remotely
+    # TODO this should be a toggle/option
     def stopServer(self):
         cherrypy.engine.exit()
         return ""
-        
-    stopServer.exposed = True
+
+    #Creates a new listing for the file passed
+    def addFile(self, filePath):
+        self.fileList = self.fileList + "<a href='download?fileName=" +filePath+ "'>"+filePath+"</a><br>"
+
+
+    #stopServer.exposed = True # Optional
     listFiles.exposed = True
     download.exposed = True
     index.exposed = True
