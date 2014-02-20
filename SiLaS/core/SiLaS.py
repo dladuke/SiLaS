@@ -12,8 +12,8 @@ import os.path
 import sys
 import argparse
 import socket
-from tkinter import *
-from tkinter import filedialog
+from Tkinter import *
+import tkFileDialog
 import server
 from cherrypy.lib import static
 from os import listdir
@@ -65,7 +65,7 @@ def startGUI():
     rootWindow.mainloop()
 
 def _selectFileGUI(root,listbox):
-    file_path_string = filedialog.askopenfilename(parent=root,title='Choose a file')
+    file_path_string = tkFileDialog.askopenfilename(parent=root,title='Choose a file')
     #print(file_path_string) # Check path
     listbox.insert(1,file_path_string)
     thisServer.addFile(file_path_string)
