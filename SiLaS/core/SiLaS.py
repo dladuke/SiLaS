@@ -79,6 +79,7 @@ def startServing():
     # to '/' will be mapped to HelloWorld().index().
     #args.list
     print("Control-c to stop serving")
+    #TODO Add config options to CLI/GUI. So user can change port.
     config = {'/': {'server.socket_host': '0.0.0.0','server.socket_port': 8080, 'server.thread_pool' : 10} }
     cherrypy.quickstart(thisServer, config=config)
 
