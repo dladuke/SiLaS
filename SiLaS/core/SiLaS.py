@@ -23,7 +23,6 @@ import threading
         
     
 
-SiLaSconf = os.path.join(__file__, 'SiLaS.conf')
 
 # Checks to make sure the filepath is correct and SiLaS can access it
 # TODO: Add all path/permission checks
@@ -80,7 +79,8 @@ def startServing():
     #args.list
     print("Control-c to stop serving")
     #TODO Add config options to CLI/GUI. So user can change port.
-    config = {'/': {'server.socket_host': '0.0.0.0','server.socket_port': 8080, 'server.thread_pool' : 10} }
+    config = {'': {'server.socket_host': '0.0.0.0','server.socket_port': 8080, 'server.thread_pool' : 10} }
+    
     cherrypy.quickstart(thisServer, config=config)
 
 # Launch the server from the GUI
