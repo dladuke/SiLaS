@@ -22,8 +22,8 @@ import threading
 
         
     
-        
-SiLaSconf = os.path.join(os.path.dirname(__file__), 'SiLaS.conf')
+
+SiLaSconf = os.path.join(__file__, 'SiLaS.conf')
 
 # Checks to make sure the filepath is correct and SiLaS can access it
 # TODO: Add all path/permission checks
@@ -79,7 +79,8 @@ def startServing():
     # to '/' will be mapped to HelloWorld().index().
     #args.list
     print("Control-c to stop serving")
-    cherrypy.quickstart(thisServer, config=SiLaSconf)
+    config = {'/': {'server.socket_host': '0.0.0.0','server.socket_port': 8080, 'server.thread_pool' : 10} }
+    cherrypy.quickstart(thisServer, config=config)
 
 # Launch the server from the GUI
 # This method handles threading and avoids networking on the GUI thread
