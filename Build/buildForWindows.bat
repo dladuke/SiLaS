@@ -1,2 +1,2 @@
 @echo off
-echo Build for windows in not yet implemented.
+pyinstaller ../SiLaS/core/SiLaS.py --distpath=../out/ -F -n SiLaS_win32
