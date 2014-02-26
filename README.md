@@ -1,8 +1,6 @@
 <h1> SiLaS </h1>
 Simple Lan Server
 
-A simple fileserver.
-
 Transfering files between different platforms can be a slow process.
 You could install and configure SSH on each individual machine and use SCP to transfer...
 You could install a FTP server on one machine and FTP clients on dozens or hundreds of other machines...
