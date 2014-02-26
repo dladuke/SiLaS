@@ -7,6 +7,9 @@ You could install a FTP server on one machine and FTP clients on dozens or hundr
 You could pass around physical media after properly configuring NTFS-3g... 
 You could install Dropbox or use Google drive if the files are small...
 
+Or you could use SiLaS
+
+
 - No installation: Just download and run.
 - Minimal configuration: Select a file and click 'host'.
 - No client needed: All machines on the LAN can download the files using only a browser.
