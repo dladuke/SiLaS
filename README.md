@@ -29,8 +29,3 @@ To build a new standalone executable you will need:
 - Pyinstaller 2.1: pip install pyinstaller
 - Cherrypy: pip install cherrypy
 
-<h1> Coming soon </h1>
-- A standalone executable for OSX
-- A GUI that doesn't look quite so bad
-- Encryption & password protection options
-
